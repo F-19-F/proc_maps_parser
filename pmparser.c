@@ -31,6 +31,7 @@ procmaps_iterator* pmparser_parse(int pid){
 	FILE* file=fopen(maps_path,"r");
 	if(!file){
 		fprintf(stderr,"pmparser : cannot open the memory maps, %s\n",strerror(errno));
+		free(maps_it);
 		return NULL;
 	}
 	int ind=0;char buf[PROCMAPS_LINE_MAX_LENGTH];
@@ -42,6 +43,7 @@ procmaps_iterator* pmparser_parse(int pid){
 	while( !feof(file) ){
 		if (fgets(buf,PROCMAPS_LINE_MAX_LENGTH,file) == NULL && errno){
 			fprintf(stderr,"pmparser : fgets failed, %s\n",strerror(errno));
+			free(maps_it);
 			return NULL;
 		}
 		//allocate a node
