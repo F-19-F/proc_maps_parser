@@ -23,7 +23,9 @@ implied warranty.
 #include <fcntl.h>
 #include <errno.h>
 #include <linux/limits.h>
-
+#ifdef __cplusplus
+extern "C" {
+#endif
 //maximum line length in a procmaps file
 #define PROCMAPS_LINE_MAX_LENGTH  (PATH_MAX + 100) 
 /**
@@ -94,6 +96,7 @@ void pmparser_print(procmaps_struct* map,int order);
 
 
 
-
-
+#ifdef __cplusplus
+}
+#endif
 #endif
