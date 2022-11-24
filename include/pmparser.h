@@ -28,6 +28,7 @@ extern "C" {
 #endif
 //maximum line length in a procmaps file
 #define PROCMAPS_LINE_MAX_LENGTH  (PATH_MAX + 100) 
+#define RBUF PROCMAPS_LINE_MAX_LENGTH
 /**
  * procmaps_struct
  * @desc hold all the information about an area in the process's  VM
